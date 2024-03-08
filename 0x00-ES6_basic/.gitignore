@@ -1,1 +1,4 @@
 *-main.js
+package.json
+babel.config.js
+.eslintrc.js
