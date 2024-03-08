@@ -1,29 +1,20 @@
-class Building {
+export default class Building {
   constructor(sqft) {
-    if (this.constructor !== Building && this.evacuationWarningMessage === undefined) {
-      throw new Error('Class extending Building must override evacuationWarningMessage');
-    }
-
-    this._sqft = Building.validateNumber(sqft, 'sqft');
+    if (typeof sqft !== 'number') throw new Error();
+    this._sqft = sqft;
+    this.evacuationWarningMessage();
   }
 
-  // Abstract method, should be implemented by subclasses
-  static evacuationWarningMessage() {
-    throw new Error('Class extending Building must override evacuationWarningMessage');
+  get sqft() {
+    return this._sqft;
   }
 
-  // Validation function for numbers
-  static validateNumber(value, attribute) {
-    if (typeof value !== 'number') {
-      throw new TypeError(`${attribute} must be a number`);
-    }
-    return value;
+  set sqft(value) {
+    this._sqft = value;
   }
 
-  // Validation function for class method usage
-  static validateMethodUsage() {
-    // Add your implementation here
+  // eslint-disable-next-line class-methods-use-this
+  evacuationWarningMessage() {
+    if (this.constructor.name !== 'Building') throw new Error('Class extending Building must override evacuationWarningMessage');
   }
 }
-
-export default Building;
