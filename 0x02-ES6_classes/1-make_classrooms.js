@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 import ClassRoom from './0-classroom';
 
 /**
