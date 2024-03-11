@@ -1,17 +1,7 @@
-// 1-block-scoped.js
+#!/usr/bin/node
+export default function taskBlock() {
+  const task = false;
+  const task2 = true;
 
-export default function taskBlock(trueOrFalse) {
-    var task = false;
-    var task2 = true;
-  
-    if (trueOrFalse) {
-      // Using block scope with curly braces
-      {
-        var task = true;
-        var task2 = false;
-      }
-    }
-  
-    return [task, task2];
-  }
-  
+  return [task, task2];
+}
