@@ -1,14 +1,9 @@
-// 0-promise.js
-function getResponseFromAPI() {
+#!/usr/bin/node
+export default function getResponseFromAPI() {
   return new Promise((resolve) => {
-    // Your API call logic goes here
-    // For example, you can use fetch or any other asynchronous operation
-
-    // Simulating a successful API call after a delay
+    // Simulating an API call here
     setTimeout(() => {
-      resolve('API response data');
-    }, 1000);
+      resolve('Response from API'); // Resolve with the desired response
+    }, 1000); // Simulating a delay of 1 second
   });
 }
-
-export default getResponseFromAPI;
