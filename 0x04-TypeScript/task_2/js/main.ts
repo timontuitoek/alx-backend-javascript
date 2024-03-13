@@ -54,4 +54,21 @@ interface DirectorInterface {
   const employee2 = createEmployee(600);
   console.log(employee2 instanceof Teacher); // false
   console.log(employee2 instanceof Director); // true
+
+// Type predicate function
+function isDirector(employee: Director | Teacher): employee is Director {
+    return 'workDirectorTasks' in employee;
+  }
   
+  // Function to execute work based on employee type
+  function executeWork(employee: Director | Teacher): void {
+    if (isDirector(employee)) {
+      console.log(employee.workDirectorTasks());
+    } else {
+      console.log(employee.workTeacherTasks());
+    }
+  }
+  
+  // Example usage
+  executeWork(createEmployee(200)); // Output: Getting to work
+  executeWork(createEmployee(1000)); // Output: Getting to director tasks
