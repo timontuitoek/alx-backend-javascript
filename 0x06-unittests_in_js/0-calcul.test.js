@@ -1,21 +1,23 @@
-// 0-calcul.test.js
 const assert = require('assert');
-const calculateNumber = require('./0-calcul');
+const calculateNumber = require('./0-calcul.js');
 
-describe('calculateNumber', function() {
-    it('should return the correct sum when both numbers are integers', function() {
-        assert.strictEqual(calculateNumber(1, 3), 4);
+describe('calculateNumber', () => {
+    it('round of a', () => {
+        assert.equal(calculateNumber(2.0, 0), 2);
+        assert.equal(calculateNumber(2.1, 0), 2);
+        assert.equal(calculateNumber(2.9, 0), 3);
     });
 
-    it('should return the correct sum when one number is a float', function() {
-        assert.strictEqual(calculateNumber(1, 3.7), 5);
+    it('round of b', () => {
+        assert.equal(calculateNumber(0, 2.0), 2);
+        assert.equal(calculateNumber(0, 2.1), 2);
+        assert.equal(calculateNumber(0, 2.9), 3);
     });
 
-    it('should return the correct sum when both numbers are floats', function() {
-        assert.strictEqual(calculateNumber(1.2, 3.7), 5);
+    it('round of a and b', () => {
+        assert.equal(calculateNumber(2.1, 2.1), 4);
+        assert.equal(calculateNumber(2.5, 2.5), 6);
+        assert.equal(calculateNumber(2.4, 2.5), 5);
+        assert.equal(calculateNumber(2.9, 2.9), 6);
     });
-
-    it('should return the correct sum when both numbers are floats and rounding up', function() {
-        assert.strictEqual(calculateNumber(1.5, 3.7), 6);
-    });
-});
+})
