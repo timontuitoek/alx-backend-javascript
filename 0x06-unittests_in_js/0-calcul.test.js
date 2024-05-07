@@ -1,23 +1,36 @@
 const assert = require('assert');
-const calculateNumber = require('./0-calcul.js');
+const calculateNumber = require('./0-calcul');
 
 describe('calculateNumber', () => {
-    it('round of a', () => {
-        assert.equal(calculateNumber(2.0, 0), 2);
-        assert.equal(calculateNumber(2.1, 0), 2);
-        assert.equal(calculateNumber(2.9, 0), 3);
-    });
+  it('floating point whole numbers', () => {
+    assert.strictEqual(calculateNumber(1.0, 2.0), 3);
+  });
 
-    it('round of b', () => {
-        assert.equal(calculateNumber(0, 2.0), 2);
-        assert.equal(calculateNumber(0, 2.1), 2);
-        assert.equal(calculateNumber(0, 2.9), 3);
-    });
+  it('rounding down b\'s floating point fractional number', () => {
+    assert.strictEqual(calculateNumber(1.0, 2.4), 3);
+  });
 
-    it('round of a and b', () => {
-        assert.equal(calculateNumber(2.1, 2.1), 4);
-        assert.equal(calculateNumber(2.5, 2.5), 6);
-        assert.equal(calculateNumber(2.4, 2.5), 5);
-        assert.equal(calculateNumber(2.9, 2.9), 6);
-    });
-})
+  it('rounding down a and b\'s floating point fractional number', () => {
+    assert.strictEqual(calculateNumber(1.4, 2.4), 3);
+  });
+
+  it('rounding down a\'s floating point fractional number', () => {
+    assert.strictEqual(calculateNumber(1.4, 2.0), 3);
+  });
+
+  it('rounding up b\'s floating point fractional numbers', () => {
+    assert.strictEqual(calculateNumber(1.0, 2.5), 4);
+  });
+
+  it('rounding up a and b\'s floating point fractional numbers', () => {
+    assert.strictEqual(calculateNumber(2.6, 2.5), 6);
+  });
+
+  it('rounding up a\'s floating point fractional numbers', () => {
+    assert.strictEqual(calculateNumber(2.6, 2.0), 5);
+  });
+
+  it('rounding down a and b floating point fractional numbers with trailing 9\'s', () => {
+    assert.strictEqual(calculateNumber(2.499999, 3.499999), 5);
+  });
+});
