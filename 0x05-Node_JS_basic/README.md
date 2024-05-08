@@ -7,4 +7,3 @@ Child process - https://intranet.alxswe.com/rltoken/IS4y9rRCblX71W_oeXpymw
 Express getting started - https://intranet.alxswe.com/rltoken/XsfrhG9NRLuuaTpVZlZv_g
 Mocha documentation - https://intranet.alxswe.com/rltoken/EBGDj1FwLrK_y4kgxp8hfg
 Nodemon documentation - https://intranet.alxswe.com/rltoken/vnDSbLsicMDdxcf5YUSXIg
-
